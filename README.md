@@ -1,3 +1,3 @@
 Morgan Stanley Code To Give | Glasgow
-Chas Team 2
+Chas 2
 
