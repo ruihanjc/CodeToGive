@@ -1,0 +1,32 @@
+/* SelectInput.css */
+
+.centered-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .large-button {
+    font-size: 24px;
+    padding: 16px 32px;
+    margin: 8px;
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .large-button:hover {
+    background-color: #0056b3; /* Hover background color */
+  }
+  
+  .header {
+    font-size: 36px; /* Adjust font size as needed */
+    color: #333; /* Dark grey color */
+    text-align: center;
+    margin-bottom: 20px; /* Optional margin for spacing */
+  }

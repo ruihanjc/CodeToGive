@@ -1,0 +1,28 @@
+@import "~font-awesome/css/font-awesome.min.css";
+
+
+.voice-container {
+    text-align: center;
+    margin-top: 100px; /* Adjust margin-top to center vertically */
+  }
+  
+  .voice-heading {
+    font-size: 24px; /* Larger text size */
+  }
+  
+  .voice-label {
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid #007bff; /* Border for the label */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    margin-top: 20px; /* Add spacing between the heading and the label */
+  }
+  
+  /* Style the microphone icon using Font Awesome */
+  .microphone-icon {
+    margin-right: 10px;
+    font-size: 20px; /* Adjust icon size */
+    vertical-align: middle; /* Center icon vertically */
+  }
+  
