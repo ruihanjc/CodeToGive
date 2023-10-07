@@ -1,0 +1,55 @@
+.App {
+  text-align: center;
+  color: black;
+  position: relative;
+  overflow: hidden; /* Ensure the image doesn't overflow the page */
+}
+
+.App-logo {
+  width: 100%; /* Set the image width to 100% to fit the page */
+  height: 100%; /* Set the image height to 100% to fit the page */
+  object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+  object-position: center; /* Center the image horizontally and vertically */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Set a lower z-index to keep it behind the text */
+}
+
+.grey-header {
+  color: rgb(33, 33, 33);
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  font-size: 100px;
+}
+
+.App-header {
+  background-image: url('./bgImage.png'); /* Set the background image here */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  color: white;
+}
+
+.button {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 30px;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 160px; /* Add margin to separate the button from the bottom */
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
