@@ -14,18 +14,22 @@ Backend:
 
 
 2- Install the requirement.txt:
-	i- pip install -r requirements.txt
+
+	pip install -r requirements.txt
 
 3- Initiate backend
-	i- python app.py
+
+	python app.py
 
 
 Frontend:
 
 1-
-	i- npm install
+
+	npm install
 
 2-
-	i- npm start
+
+	npm start
 
 
