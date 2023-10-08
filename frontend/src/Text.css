@@ -1,0 +1,46 @@
+.text-container {
+    text-align: center;
+    margin-top: 100px; /* Adjust margin-top to center vertically */
+  }
+  
+  h2 {
+    font-size: 36px; /* Larger text size */
+    margin-bottom: 20px; /* Add spacing between heading and form */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  label {
+    font-size: 18px; /* Larger label text */
+    margin-bottom: 10px; /* Add spacing between label and input */
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px; /* Larger input text */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px; /* Limit input width */
+    margin-bottom: 20px; /* Add spacing between input and button */
+  }
+  
+  button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px; /* Larger button text */
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  

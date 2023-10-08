@@ -1,22 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import Home from './Home';
+import SelectInput from './SelectInput';
+import Text from './Text';
+import Voice from './Voice'; 
+
 
 function App() {
-
-
-return (
-    <div className="App">
-        <header className="App-header">
-            <h1>React and flask</h1>
-            {/* Calling a data from setdata for showing */}
-            <p>{data.name}</p>
-            <p>{data.age}</p>
-            <p>{data.date}</p>
-            <p>{data.programming}</p>
-
-        </header>
-    </div>
-);
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/select-input" element={<SelectInput />} />
+        <Route path="/text" element={<Text />} />
+        <Route path="/voice" element={<Voice />} />
+      </Routes>
+    </Router>
+  );
 }
+
 
 export default App;
