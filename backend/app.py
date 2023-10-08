@@ -2,6 +2,10 @@ from flask import Flask, request, Response, stream_with_context, json
 import requests
 import sseclient
 import tensorflow as tf
+from tqdm import tqdm
+import numpy as np 
+import pandas as pd 
+import random
 
 app = Flask(__name__)
 
@@ -52,36 +56,49 @@ def textPrompt():
 
 @app.route("/api/upload-image", methods=["POST"])
 def upload_image():
-        imagefile = request.files.get('imagefile', '')
+        imagefile = request.files.get('imageSrc', '')
+
+        
+
 
         # Load pre-trained model
-        num_model = tf.keras.models.load_model('sign_language_predictor/models/number_model.h5')
+        # num_model = tf.keras.models.load_model('models/number_model.h5')
+        
+        
 
-        # Preprocessing steps
-        # Normalize the data
-        num_x = num_x / 255
-        # Reshaping data from 1D to 3D
-        num_x = num_x.reshape(-1,28,28,1)
+        # # Preprocessing steps
+        # num_x = np.shape(imagefile)
+        
+        # # img_array = cv2.imread(os.path.join(path,img) ,cv2.IMREAD_GRAYSCALE)
+        # # new_array = cv2.resize(img_array, (img_size[1], img_size[0]))
 
-        # Use model to predict number
-        predictions = num_model.predict(num_x) 
-        res = np.argmax(predictions,axis=1)
+        # # Normalize the data
+        # num_x = num_x / 255
+        # # Reshaping data from 1D to 3D
+        # num_x = num_x.reshape(-1,28,28,1)
 
-        prompt = ''
+        # # Use model to predict number
+        # predictions = num_model.predict(num_x) 
+        # res = np.argmax(predictions,axis=1)
+        
+        res = random.randint(1,6)
+
+        
+        temp = ''
         if res == 1:
-            prompt = 'Create a story of 300 words, with main characters called: Andy, style: Superhero, location: New york'
+            temp = 'Create a story of 300 words, with main characters called: Andy, style: Superhero, location: New york'
         elif res == 2:
-            prompt = 'Create a story of 300 words, with main characters called: Ben, style: Ninja, location: London'
+            temp = 'Create a story of 300 words, with main characters called: Ben, style: Ninja, location: London'
         elif res == 3:
-            prompt = 'Create a story of 300 words, with main characters called: Cathy, style: Princess, location: Barcelona'
+            temp = 'Create a story of 300 words, with main characters called: Cathy, style: Princess, location: Barcelona'
         elif res == 4:
-            prompt = 'Create a story of 300 words, with main characters called: David, style: Adventure, location: Los Angeles'
+            temp = 'Create a story of 300 words, with main characters called: David, style: Adventure, location: Los Angeles'
         elif res == 5:
-            prompt = 'Create a story of 300 words, with main characters called: Edward, style: Detective, location: Berlin'
+            temp = 'Create a story of 300 words, with main characters called: Edward, style: Detective, location: Berlin'
         else: 
-            prompt = 'Create a story of 300 words, with main characters called: Frida, style: Scary, location: Paris'
+            temp = 'Create a story of 300 words, with main characters called: Frida, style: Scary, location: Paris'
         
-        
+
 
         def generate():
             url = 'https://api.openai.com/v1/chat/completions'
@@ -94,7 +111,7 @@ def upload_image():
                 'model': 'gpt-3.5-turbo',
                 'messages': [
                     {'role': 'system', 'content': "You are a caretaker for children. In this conversation, you are talking directly to the children."},
-                    {'role': 'user', 'content': prompt}
+                    {'role': 'user', 'content': temp}
                 ],
                 'temperature': 1, 
                 'max_tokens': 400,
@@ -102,6 +119,7 @@ def upload_image():
             }
 
             response = requests.post(url, headers=headers, data=json.dumps(data), stream=True)
+            print(response)
             client = sseclient.SSEClient(response)
             for event in client.events():
                 if event.data != '[DONE]':
