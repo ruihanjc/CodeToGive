@@ -12,9 +12,6 @@ OPEN_AI_KEY = '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'
 CORS(app)
 
 
-
-
-
 @app.route('/api/textPrompt', methods=['GET', 'POST'])
 def textPrompt():
     if request.method == 'POST':
@@ -52,18 +49,12 @@ def textPrompt():
 
 
 
-
-@app.route('/api/upload', methods=['POST'])
-def handle_form():
-    files = request.files
-    file = files.get('file')
-    """
-      CODE TO HANDLE FILE
-    """
-    return jsonify({
-        'success': True,
-        'file': 'Received'
-    })
+@app.route("/api/upload-image", methods=["POST"])
+def upload_image():
+    try:
+        imagefile = flask.request.files('imagefile', '')
+    except Exception as err:
+        printf(err)
 
 
 @app.route("/")

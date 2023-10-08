@@ -1,64 +1,61 @@
-import Webcam from "react-webcam";
+import React, { useRef, useState } from 'react';
+import Webcam from 'react-webcam';
+import axios from 'axios';
 
-import { useCallback, useRef, useState } from "react"; // import useCallback
-
-
-
-
-const CustomWebcam = () => {
+function WebcamCapture () {
   const webcamRef = useRef(null);
-  const [imgSrc, setImgSrc] = useState(null);
-  const [mirrored, setMirrored] = useState(false);
-  
-  // create a capture function
-  const capture = useCallback(() => {
+  const [imgSrc, setImgSrc] = useState("");
+
+  async function capture () {
     const imageSrc = webcamRef.current.getScreenshot();
-    setImgSrc(imageSrc);
     
-  }, [webcamRef]);
-
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const formData = new FormData(e.target);
-    
-    const Upload = async() => {
-      await fetch('/api/upload', {
-        method: 'POST',
-        body: formData
-      }).then(resp => {
-        resp.json().then(data => {console.log(data)})
-      })
+    try {
+      axios.post('http://localhost:4444/api/upload-image', { image: imageSrc }, 
+        {
+            headers: {
+                'Content-Type': 'image/*'
+            }
+        }
+      )
+      console.log('Image sent to server.');
+      setImgSrc(imageSrc);
+    } catch (error) {
+      console.error('Error sending image to server:', error);
     }
-    Upload();
-  }
-
-
-
-
-
-  const retake = () => {
-    setImgSrc(null);
   };
 
-    return (
-        <div className="container">
-            {imgSrc ? (
-            <img src={imgSrc} alt="webcam" />
-            ) : (
-            <Webcam height={600} width={600} ref={webcamRef} mirrored={true} />
-            )}
-        
-      <div className="btn-container">
-        {imgSrc ? (
-          <button onClick={handleSubmit}>Update photo</button>
-        ) : (
-          <button onClick={capture}>Capture photo</button>
-        )}
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <h1>Webcam Data to Server</h1>
+      <div style={{ margin: 'auto' }}>
+        <Webcam audio={false} ref={webcamRef} screenshotFormat="image/jpeg" />
       </div>
+      <div style={{ margin: 'auto' }}>
+        <button
+          style={{
+            marginTop: '10px',
+            fontSize: '20px',
+            backgroundColor: '#423fff',
+            cursor: 'pointer',
+            borderRadius: "10px",
+            color: "white",
+            padding: "10px"
+          }}
+          onClick={capture}
+        >
+          Capture
+        </button>
+      </div>
+
+      {
+        imgSrc !== "" &&
+        <div style={{ marginTop: '20px' }}>
+          <h2>Captured Image</h2>
+          <img src={imgSrc} alt="Captured" style={{ marginTop: '10px' }} />
+        </div>
+      }
     </div>
-    );
+  );
 };
 
-export default CustomWebcam;
+export default WebcamCapture;
