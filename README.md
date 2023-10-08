@@ -5,6 +5,7 @@ Chas 2
 To set up the web-application, there are two parts, remember to install Node.js and set up the virtual environment for Python, otherwise it won't work.
 
 
+First initialise the backend, where is connected to ChatGPT
 Backend:
 
 1- Set up the virtual environment:
@@ -20,6 +21,8 @@ Backend:
 	python app.py
 
 
+
+Then initialise the FE, and go to the URL indicated.
 Frontend:
 
 1-

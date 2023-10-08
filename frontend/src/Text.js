@@ -54,13 +54,19 @@ function App() {
       <div style={{order: 1, width: '80vh'}}>
         <div style={{display: 'flex', flexDirection: 'column'}}>
           <h2 style={{order: -1}}>Show your imagination!</h2>        
-
+          <div className="container">
           <h3>Characters</h3>
           <textarea id="textarea1" rows="2" cols="50"></textarea>
+          </div>
+          <div className="container">
           <h3>Style</h3>
-          <textarea id="textarea2" rows="2" cols="50"></textarea>
+          <textarea id="textarea2" rows="2" cols="50"></textarea>            
+          </div>
+          <div className="container">
           <h3>Time</h3>
           <textarea id="textarea3" rows="2" cols="50"></textarea>
+          </div>
+          
 
           <div style={{order: 3}}>
             <button

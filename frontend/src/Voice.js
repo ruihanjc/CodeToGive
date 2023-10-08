@@ -1,20 +1,96 @@
-import React from 'react';
+
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import useClipboard from "react-use-clipboard";
+import {useState} from "react";
 import './Voice.css'; 
 
+
 function Voice() {
-  return (
-    <div className="voice-container">
-      <h2 className="voice-heading">Tell me a story about ... </h2>
-      <label htmlFor="audioInput" className="voice-label">
-        <input type="file" id="audioInput" accept="audio/*" capture />
-        <span className="microphone-icon">
-          {/* You can use a Font Awesome microphone icon here */}
-          <i className="fas fa-microphone"></i>
-        </span>
-        Click to Record or Upload Audio
-      </label>
-    </div>
-  );
+  const [promptResponse, setPromptResponse] = useState('');
+
+  const handleSubmit = async () => {
+
+    const url = 'http://localhost:4444/api/textPrompt';
+    var tmpPromptResponse = '';
+    try {
+      const response = await fetch(url , {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          prompt: transcript,
+        }),
+      });
+      
+      // eslint-disable-next-line no-undef
+      let decoder = new TextDecoderStream();
+      if (!response.body) return;
+      const reader = response.body
+        .pipeThrough(decoder)
+        .getReader();
+      
+      while (true) {
+        var {value, done} = await reader.read();
+        
+        if (done) {
+          break;
+        } else {
+          tmpPromptResponse += value;
+          setPromptResponse(tmpPromptResponse);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+
+  const [textToCopy, setTextToCopy] = useState();
+    const [isCopied, setCopied] = useClipboard(textToCopy, {
+        successDuration:1000
+    });
+
+    //subscribe to thapa technical for more awesome videos
+
+    const startListening = () => SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
+    const { transcript, browserSupportsSpeechRecognition } = useSpeechRecognition();
+
+    if (!browserSupportsSpeechRecognition) {
+        return null
+    }
+
+    return (
+        <>
+            <div className="container">
+                <h2>Speek to have your story!</h2>
+                <br/>
+                <p>Converts speech from the microphone to text and makes it available to your React components.</p>
+
+                <div className="main-content" onClick={() =>  setTextToCopy(transcript)}>
+                    {transcript}
+                </div>
+
+                <div className="btn-style">
+                    <button onClick={startListening}>Start Listening</button>
+                    <button onClick={SpeechRecognition.stopListening}>Stop Listening</button>
+                </div>
+
+                <div style={{order: 3}}>
+                <button
+                  onClick={handleSubmit}
+                >Submit</button>
+                </div>
+
+                <div style={{order: 4, marginTop: '5rem'}}>
+                <h3>Streamed Prompt Response:</h3>
+                <span>{promptResponse}</span>
+                </div>
+
+            </div>
+
+        </>
+    );
 }
 
 export default Voice;
