@@ -6,11 +6,32 @@ function Home() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="grey-header">MakaStory</h1>
-        <h3 className='sub-header'>Personalised stories for kids</h3>
-        <Link to="/select-input">
-          <button className="button">Start Adventure</button>
-        </Link>
+        <header>
+
+            <div class="logo-wrapper">
+                <a class="logo">MAKASTORY</a>
+                <a class="subtitle">Generating stories for kids</a>
+            </div>
+            <ul>
+                <div className="centered-buttons">
+                <Link to="/voice">
+                <li><a href="#">Voice</a></li>
+                </Link>
+                <Link to="/text">
+                <li><a href="#">Text</a></li>
+                </Link>
+                <Link to="/text">
+                <li><a href="#">Sign</a></li>
+                </Link>
+                </div>
+            </ul>
+
+          
+
+
+        </header>
+        
+        
       </header>
     </div>
   );

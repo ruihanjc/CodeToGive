@@ -1,70 +1,73 @@
-/* Your CSS file */
-.App {
-    text-align: center;
-    color: black;
-    position: relative;
-    overflow: hidden; /* Ensure the image doesn't overflow the page */
-  }
-  
-  .App-logo {
-    width: 100%; /* Set the image width to 100% to fit the page */
-    height: 100%; /* Set the image height to 100% to fit the page */
-    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
-    object-position: center; /* Center the image horizontally and vertically */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1; /* Set a lower z-index to keep it behind the text */
-  }
-  
-  .grey-header {
-    color: rgb(33, 33, 33);
-    position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    font-size: 100px;
-  }
-  
-  .sub-header {
-    color: rgb(33, 33, 33); /* Adjust the color as needed */
-    position: absolute;
-    top: calc(50px + 100px + 20px); /* Adjust the vertical position as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    font-size: 20px; /* Adjust the font size as needed */
-    margin-top: 60px;
-    
-  }
-  
-  .App-header {
-    background-image: url('./bgImage.png'); /* Set the background image here */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,600&display=swap');
+
+.App{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    min-height:  100vh;
+    overflow-x: hidden;
+    background: linear-gradient(#30b3d4, #ffffff);
+}
+
+.App-header .logo,header .subtitle,
+header ul li {
+    color: #fff;
+    background: -webkit-linear-gradient(45deg, #ffffff, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    font-size: 8em;
+    /* Size for .logo */
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* Allows positioning of pseudo-elements relative to the logo */
+    transition: transform 0.3s ease;
+    padding: 30;
+}
+
+header ul li  {
+    font-size: 3em;
+    padding: 50px;
+    /* Size for menu items */
+}
+header .subtitle {
+    display: block;
+    /* Ensures the subtitle takes up its own line */
+    font-size: 3em;
+    /* Adjust size to your preference */
+    margin-top: 0px;
+    /* Optional: Add space between the logo and subtitle */
+}
+header .logo:hover,header .subtitle:hover,
+header ul li a:hover {
+    color: transparent;
+    /* Making the main text transparent to show layers below */
+    text-shadow:
+        1px 1px 0px #b19cd9,
+        2px 2px 0px #9b59b6,
+        3px 3px 0px #8e44ad,
+        4px 4px 0px #7d3c98,
+        5px 5px 0px #6c3483;
+    /* Multiple shadows to represent layers of the text in varying shades of purple */
+}
+
+header ul {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-end;
-    color: white;
-  }
-  
-  .button {
-    background-color: #007bff;
-    color: white;
-    padding: 15px 30px;
-    font-size: 24px;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 160px;
-    border-radius: 10px;
-  }
-  
-  .button:hover {
-    background-color: #0056b3;
-    border-radius: 10px;
-  }
-  
+    margin-right: 90px;;
+}
+
+header ul li {
+    list-style: none;
+    margin-left: 0px;
+}

@@ -1,28 +1,171 @@
-@import "~font-awesome/css/font-awesome.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Libre+Baskerville&family=Merriweather:wght@700&family=Work+Sans&display=swap");
+
+.voiceBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  
+}
 
 
-.voice-container {
-    text-align: center;
-    margin-top: 100px; /* Adjust margin-top to center vertically */
+.container {
+  padding: 15px;
+  margin-top: 50px;
+}
+
+.voiceHead {
+  color: #fff;
+  background: -webkit-linear-gradient(45deg, #ffffff, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  font-size: 3em;
+  text-align: center;
+  /* Size for .logo */
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* Allows positioning of pseudo-elements relative to the logo */
+  transition: transform 0.3s ease;
+  padding: 30;
+}
+
+p {
+  max-width: 50rem;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 100px;
+}
+
+.main-content {
+  max-width: 50rem;
+  width: 100%;
+  min-height: 200px;
+  height: auto;
+  padding: 18px 18px 120px 18px;
+  position: relative;
+  resize: none;
+  box-shadow: 0 12px 48px 0px rgb(109 117 141 / 20%);
+  background: rgb(255 255 255);
+  border: 0.5px solid rgb(231 233 245);
+  border-radius: 16px;
+}
+
+.content-answer {
+  max-width: 50rem;
+  width: 100%;
+  min-height: 200px;
+  height: auto;
+  padding: 18px 18px 18px;
+  resize: true;
+  box-shadow: 0 12px 48px 0px rgb(109 117 141 / 20%);
+  background: rgb(255 255 255);
+  border: 0.5px solid rgb(231 233 245);
+  border-radius: 16px;
+}
+
+.main-content:focus {
+  border: 0.3px solid rgb(43, 45, 56, 0.3);
+  outline: none;
+}
+
+.content-answer:focus {
+  border: 0.3px solid rgb(43, 45, 56, 0.3);
+  outline: none;
+}
+
+p,
+.main-content {
+  font-size: 18px;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  line-height: 1.6;
+}
+
+
+.content-answer {
+  font-size: 18px;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  line-height: 1.6;
+}
+
+.btn-style{
+  display: flex;
+
+}
+
+button {
+  /* position: absolute; */
+  background: rgb(17, 124, 166);
+  color: rgb(255 255 255);
+  border-radius: 6px;
+  padding: 16px 32px;
+  border: none;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: auto;
+  display: flex;
+  position: relative;
+  margin-top: -80px;
+  cursor: pointer;
+}
+
+button:focus,
+button:hover {
+  background: rgb(42, 45, 201);
+  box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+}
+
+.counter-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: 20px;
   }
-  
-  .voice-heading {
-    font-size: 24px; /* Larger text size */
+
+  h2 {
+    font-size: 28px;
   }
-  
-  .voice-label {
-    display: inline-block;
-    padding: 10px;
-    border: 2px solid #007bff; /* Border for the label */
-    border-radius: 8px; /* Rounded corners */
-    cursor: pointer;
-    margin-top: 20px; /* Add spacing between the heading and the label */
+
+  p {
+    font-size: 16px;
+    word-spacing: normal;
+    margin-bottom: 40px;
+    margin-top: 15px;
   }
-  
-  /* Style the microphone icon using Font Awesome */
-  .microphone-icon {
-    margin-right: 10px;
-    font-size: 20px; /* Adjust icon size */
-    vertical-align: middle; /* Center icon vertically */
+
+  .main-content {
+    /*border:1px solid*/
+    font-size: 16px;
+    word-spacing: normal;
   }
-  
+
+  .content-answer {
+    /*border:1px solid*/
+    font-size: 16px;
+    word-spacing: normal;
+  }
+
+  button {
+    padding: 12px 28px;
+    font-size: 16px;
+    margin-top: -70px;
+  }
+
+  .counter-container {
+    flex-direction: column;
+  }
+
+  .counter-container p:first-child {
+    margin-bottom: 0;
+  }
+}

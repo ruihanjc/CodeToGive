@@ -11,7 +11,7 @@
   object-fit: cover; /* Maintain aspect ratio and cover the entire container */
   object-position: center; /* Center the image horizontally and vertically */
   position: absolute;
-  top: 0;
+  top: 20px;
   left: 0;
   z-index: 1; /* Set a lower z-index to keep it behind the text */
 }
@@ -26,21 +26,9 @@
   font-size: 100px;
 }
 
-.App-header {
-  background-image: url('./bgImage.png'); /* Set the background image here */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  color: white;
-}
 
 .button {
-  background-color: #007bff;
+  background-color: rgba(252, 249, 249, 0);
   color: white;
   padding: 15px 30px;
   font-size: 24px;
@@ -50,6 +38,6 @@
 }
 
 .button:hover {
-  background-color: #0056b3;
+  background-color: #ffffff;
 }
 

@@ -61,9 +61,9 @@ function Voice() {
     }
 
     return (
-        <>
+          <div className= "voiceBody">
             <div className="container">
-                <h2>Speek to have your story!</h2>
+                <header className="voiceHead">Speak your story!</header>
                 <br/>
                 <p>Converts speech from the microphone to text and makes it available to your React components.</p>
 
@@ -82,14 +82,13 @@ function Voice() {
                 >Submit</button>
                 </div>
 
-                <div style={{order: 4, marginTop: '5rem'}}>
+                <div className="content-answer">
                 <h3>Streamed Prompt Response:</h3>
                 <span>{promptResponse}</span>
                 </div>
-
             </div>
-
-        </>
+          </div>
+          
     );
 }
 
