@@ -6,8 +6,8 @@
   }
   
   .large-button {
-    font-size: 24px;
-    padding: 16px 32px;
+    font-size: 16px; /* Decreased font size for smaller buttons */
+    padding: 10px 20px; /* Adjust padding as needed */
     margin: 8px;
     background-color: #007bff; /* Button background color */
     color: #fff; /* Text color */
@@ -15,7 +15,20 @@
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 200px; /* Fixed button width */
+    height: 100px; /* Fixed button height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
+  
+  .large-button img {
+    max-width: 80%; /* Limits the image size within the button */
+    max-height: 60px; /* Limits the image height within the button */
+  }
+  
   
   .large-button:hover {
     background-color: #0056b3; /* Hover background color */
