@@ -18,7 +18,7 @@ Backend:
 
 	pip install -r requirements.txt
 
-3- Initiate backend
+3- Initiate backend (navigate to the backend folder)
 
 	python app.py
 
@@ -27,7 +27,7 @@ Backend:
 Then initialise the FE, and go to the URL indicated.
 Frontend:
 
-1-
+1- (Navigate to the frontend folder)
 
 	npm install
 

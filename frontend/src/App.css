@@ -16,6 +16,19 @@
   z-index: 1; /* Set a lower z-index to keep it behind the text */
 }
 
+.App-header {
+  background-image: url('../images/bgImage.png'); /* Set the background image here */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  color: white;
+}
+
 .grey-header {
   color: rgb(33, 33, 33);
   position: absolute;
