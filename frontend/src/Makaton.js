@@ -5,22 +5,55 @@ import axios from 'axios';
 function WebcamCapture () {
   const webcamRef = useRef(null);
   const [imgSrc, setImgSrc] = useState("");
+  const [promptResponse, setPromptResponse] = useState('');
 
-  async function capture () {
+  const capture = async () => {
+    const url = 'http://localhost:4444/api/upload-image'
     const imageSrc = webcamRef.current.getScreenshot();
-    
+    var tmpPromptResponse = '';
     try {
-      axios.post('http://localhost:4444/api/upload-image', { image: imageSrc }, 
-        {
-            headers: {
-                'Content-Type': 'image/*'
-            }
-        }
-      )
-      console.log('Image sent to server.');
+    //   const response = axios.post('http://localhost:4444/api/upload-image', { image: imageSrc }, 
+    //     {
+    //         headers: {
+    //             'Content-Type': 'image/*'
+    //         }
+    //     }
+    //   )
+
+    const response = await fetch(url , {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'image/*'
+        },
+        body: {image: imageSrc},
+      });
       setImgSrc(imageSrc);
+      
+      // eslint-disable-next-line no-undef
+
+      
+      let decoder = new TextDecoderStream();
+      if (!response.body) {
+        console.log("Hello")
+        return;
+      }
+      const reader = response.body
+        .pipeThrough(decoder)
+        .getReader();
+      
+      while (true) {
+        var {value, done} = await reader.read();
+        
+        if (done) {
+          break;
+        } else {
+          tmpPromptResponse += value;
+          setPromptResponse(tmpPromptResponse);
+        }
+      }
+      
     } catch (error) {
-      console.error('Error sending image to server:', error);
+      console.log(error);
     }
   };
 
@@ -54,7 +87,17 @@ function WebcamCapture () {
           <img src={imgSrc} alt="Captured" style={{ marginTop: '10px' }} />
         </div>
       }
+
+    
+                <div className="content-answer">
+                <h3>Streamed Prompt Response:</h3>
+                <span>{promptResponse}</span>
+        
+    </div>    
     </div>
+
+   
+
   );
 };
 

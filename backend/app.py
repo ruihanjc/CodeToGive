@@ -51,10 +51,36 @@ def textPrompt():
 
 @app.route("/api/upload-image", methods=["POST"])
 def upload_image():
-    try:
-        imagefile = flask.request.files('imagefile', '')
-    except Exception as err:
-        printf(err)
+        imagefile = request.files.get('imagefile', '')
+        def generate():
+            url = 'https://api.openai.com/v1/chat/completions'
+            headers = {
+                'content-type': 'application/json; charset=utf-8',
+                'Authorization': f"Bearer {OPEN_AI_KEY}"            
+            }
+
+            data = {
+                'model': 'gpt-3.5-turbo',
+                'messages': [
+                    {'role': 'system', 'content': "You are a caretaker for children. In this conversation, you are talking directly to the children."},
+                    {'role': 'user', 'content': "Story of 200 words for kids"}
+                ],
+                'temperature': 1, 
+                'max_tokens': 400,
+                'stream': True,            
+            }
+
+            response = requests.post(url, headers=headers, data=json.dumps(data), stream=True)
+            client = sseclient.SSEClient(response)
+            for event in client.events():
+                if event.data != '[DONE]':
+                    try:
+                        text = json.loads(event.data)['choices'][0]['delta']['content']
+                        yield(text)
+                    except:
+                        yield('')
+
+        return Response(stream_with_context(generate()))
 
 
 @app.route("/")
