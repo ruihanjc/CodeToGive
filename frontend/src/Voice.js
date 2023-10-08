@@ -64,8 +64,8 @@ function Voice() {
           <div className= "voiceBody">
             <div className="container">
                 <header className="voiceHead">Speak your story!</header>
-                <br/>
-                <p>Converts speech from the microphone to text and makes it available to your React components.</p>
+
+                <h>Converts speech from the microphone to text and makes it available to your React components.</h>
 
                 <div className="main-content" onClick={() =>  setTextToCopy(transcript)}>
                     {transcript}

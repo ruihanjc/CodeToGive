@@ -5,6 +5,7 @@ import Home from './Home';
 import SelectInput from './SelectInput';
 import Text from './Text';
 import Voice from './Voice'; 
+import Makaton from './Makaton'; 
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/select-input" element={<SelectInput />} />
         <Route path="/text" element={<Text />} />
         <Route path="/voice" element={<Voice />} />
+        <Route path="/makaton" element={<Makaton />} />
       </Routes>
     </Router>
   );

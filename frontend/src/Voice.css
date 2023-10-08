@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   align-self: center;
+  text-align: center;
   
 }
 
@@ -12,6 +13,7 @@
 .container {
   padding: 15px;
   margin-top: 50px;
+  text-align: center;
 }
 
 .voiceHead {
@@ -39,15 +41,17 @@ p {
   text-align: center;
   margin-top: 24px;
   margin-bottom: 100px;
+  
 }
 
 .main-content {
-  max-width: 50rem;
+  max-width: 100rem;
   width: 100%;
   min-height: 200px;
   height: auto;
   padding: 18px 18px 120px 18px;
   position: relative;
+  text-align: center;
   resize: none;
   box-shadow: 0 12px 48px 0px rgb(109 117 141 / 20%);
   background: rgb(255 255 255);
@@ -56,7 +60,7 @@ p {
 }
 
 .content-answer {
-  max-width: 50rem;
+  max-width: 100rem;
   width: 100%;
   min-height: 200px;
   height: auto;
@@ -76,6 +80,13 @@ p {
 .content-answer:focus {
   border: 0.3px solid rgb(43, 45, 56, 0.3);
   outline: none;
+}
+
+h {
+  font-size: 18px;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  line-height: 1.6;
 }
 
 p,

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import './Text.css'; 
 
 function App() {
   const [promptResponse, setPromptResponse] = useState('');

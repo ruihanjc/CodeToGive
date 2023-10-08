@@ -20,7 +20,7 @@ function Home() {
                 <Link to="/text">
                 <li><a href="#">Text</a></li>
                 </Link>
-                <Link to="/text">
+                <Link to="/makaton">
                 <li><a href="#">Sign</a></li>
                 </Link>
                 </div>
