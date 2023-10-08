@@ -1,3 +1,27 @@
+# MAKASTORY
+
+MAKASTORY is an innovative platform focused on generating stories for kids. With an immersive front-end design featuring dynamic animations of stars, the moon, and mountains, we invite users to embark on an adventure of stories.
+
+![Project screenshot](path-to-your-image/screenshot.png)
+
+## Features
+
+- **Voice Stories**: Engage with interactive voice narratives.
+- **Text Stories**: Read enchanting tales.
+- **Sign Stories**: Explore stories through sign language.
+- **Special CHAS Feature**: Dive deep into the heart-touching stories from Children's Hospices Across Scotland (CHAS).
+
+## Technologies Used
+
+- **HTML/CSS**: For responsive and dynamic web design.
+- **JavaScript**: Powering the interactive features and animations.
+
+## Setup & Installation
+
+1. **Clone the Repository** 
+
+   ```sh
+   git clone https://github.com/yourusername/MAKASTORY.git
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
