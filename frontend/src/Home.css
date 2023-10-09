@@ -23,6 +23,7 @@ header ul li {
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
+    
     font-size: 8em;
     /* Size for .logo */
     text-transform: uppercase;
@@ -59,6 +60,28 @@ header ul li a:hover {
         5px 5px 0px #6c3483;
     /* Multiple shadows to represent layers of the text in varying shades of purple */
 }
+
+.home-button {
+    background-color: #30b3d4;
+    padding: 15px 70px;
+    align-items: center;
+}
+
+.home-button {
+    color: white;
+    padding: 15px 70px;
+    font-size: 18px; /* Larger button text */
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
+    margin-bottom: 200px;
+  }
+  
+  .home-button:hover {
+    background-color: #0056b3;
+    
+  }
 
 header ul {
     display: flex;

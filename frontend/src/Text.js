@@ -50,35 +50,46 @@ function App() {
   return (
         <div className= "textBody">
             <div style={{ textAlign: 'center' , flexDirection: 'column', justifyContent: 'center'}}>
+
+            
           
             <div style={{display: 'flex', flexDirection: 'column'}}>
-              <header className="voiceHead">Speak your story!</header>     
+            
+            <div class="logo-wrapper">
+                <header className="voiceHead">Type your story!</header>   
+                <h>Please fill the details you want for the story</h>
+            </div>
+                <h3></h3>
+                <h3></h3>
+              <div  className="container">
+                <button className="textButton"
+                  onClick={handleSubmit}
+                >Here we go!</button>
+              </div>  
+
               <div className="container">
-                <h3>Characters</h3>
-                <textarea id="textarea1" rows="2" cols="40"></textarea>
+                <h3>Protagonists!</h3>
+                <textarea id="textarea1" rows="2" cols="70"></textarea>
      
               
-                <h3>Style</h3>
-                <textarea id="textarea2" rows="2" cols="40"></textarea>            
+                <h3>Style!</h3>
+                <textarea id="textarea2" rows="2" cols="70"></textarea>            
         
          
-                <h3>Location</h3>
-                <textarea id="textarea3" rows="2" cols="40"></textarea>
+                <h3>Place!</h3>
+                <textarea id="textarea3" rows="2" cols="70"></textarea>
               </div>
               
 
-          <div style={{order: 3}}>
-            <button
-              onClick={handleSubmit}
-            >Submit</button>
 
-          </div>
 
-        
-          <div style={{padding: 30}} className="content-answer">
-            <h3>Streamed Prompt Response:</h3>
+
+          <div style={{padding: 0}} className="text-content-answer">
+            <h3>Here's your story:</h3>
             <span>{promptResponse}</span>
           </div>
+    
+          
 
         </div>      
       </div>

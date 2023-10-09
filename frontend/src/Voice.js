@@ -63,7 +63,7 @@ function Voice() {
     return (
           <div className= "voiceBody">
             <div className="container">
-                <header className="voiceHead">Speak your story!</header>
+                <header className="voiceHead">Tell your story!</header>
 
                 <h>Converts speech from the microphone to text and makes it available to your React components.</h>
 
@@ -71,19 +71,16 @@ function Voice() {
                     {transcript}
                 </div>
 
-                <div className="btn-style">
+                <div className="voice-btn-style">
                     <button onClick={startListening}>Start Listening</button>
+                    <button onClick={handleSubmit}>Submit</button>
                     <button onClick={SpeechRecognition.stopListening}>Stop Listening</button>
                 </div>
 
-                <div style={{order: 3}}>
-                <button
-                  onClick={handleSubmit}
-                >Submit</button>
-                </div>
+                
 
                 <div className="content-answer">
-                <h3>Streamed Prompt Response:</h3>
+                <h3>Here's your story:</h3>
                 <span>{promptResponse}</span>
                 </div>
             </div>

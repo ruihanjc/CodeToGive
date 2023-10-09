@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 from flask_cors import CORS
 
-OPEN_AI_KEY = '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'
+OPEN_AI_KEY = ''
 
 # handle cors
 CORS(app)
