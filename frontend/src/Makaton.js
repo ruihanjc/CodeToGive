@@ -69,9 +69,10 @@ function WebcamCapture () {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
        <header className="voiceHead">Record your story!</header>   
-      <h1>Webcam</h1>
+      <h1>_</h1>
+      <h1>_</h1>
       <div style={{ margin: 'auto' }}>
-        <Webcam audio={false} ref={webcamRef} screenshotFormat="image/jpeg" />
+        <Webcam audio={false} ref={webcamRef} mirrored ='True' screenshotFormat="image/jpeg" />
       </div>
       <div style={{ margin: 'auto' }}>
         <button
@@ -89,7 +90,7 @@ function WebcamCapture () {
           Capture Your Sign
         </button>
       </div>
-
+      <h1>_</h1>
       {
         imgSrc !== "" &&
         <div style={{ marginTop: '20px' }}>

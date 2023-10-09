@@ -26,16 +26,13 @@ function Home() {
         </Link>
         <Link to="/makaton">
         <button className="large-button">
-          Makaton
+          Sign
         </button>
         </Link>
-       
+      
         
       </div>
     </div>
-
-          
-
 
         </header>
         

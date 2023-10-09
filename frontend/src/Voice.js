@@ -63,7 +63,7 @@ function Voice() {
 
     //subscribe to thapa technical for more awesome videos
 
-    const startListening = () => SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
+    const startListening = () => SpeechRecognition.startListening({ continuous: true, language: 'en-US' });
     const { transcript, browserSupportsSpeechRecognition } = useSpeechRecognition();
 
     if (!browserSupportsSpeechRecognition) {
@@ -74,9 +74,9 @@ function Voice() {
           <div className= "voiceBody">
             <div className="container">
                 <header className="voiceHead">Tell your story!</header>
-
-                <h>Converts speech from the microphone to text and makes it available to your React components.</h>
-
+                
+                <h>_</h>
+                
                 <div className="main-content" onClick={() =>  setTextToCopy(transcript)}>
                     {transcript}
                 </div>

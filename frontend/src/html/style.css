@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+body{
+    min-height:  100vh;
+    overflow-x: hidden;
+    background: linear-gradient(#7597de, #ffff);
+}
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+ul{
+    position: absolute;
+    top: 500;
+    left: 0;
+    width: 100%;
+    padding: 180px 100px;
+    font-size: 3em;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+header .logo,header .subtitle,
+header ul li a {
+    color: #ffffff;
+    background: -webkit-linear-gradient(45deg, #34b5ec, #ece79a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    font-size: 10em;
+    /* Size for .logo */
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    /* Allows positioning of pseudo-elements relative to the logo */
+    transition: transform 0.3s ease;
+}
+
+header ul li a {
+    font-size: 1.2em;
+    /* Size for menu items */
+}
+header .subtitle {
+    display: block;
+    /* Ensures the subtitle takes up its own line */
+    font-size: 0.8em;
+    /* Adjust size to your preference */
+    margin-top: 10px;
+    /* Optional: Add space between the logo and subtitle */
+}
+header .logo:hover,header .subtitle:hover,
+header ul li a:hover {
+    color: transparent;
+    /* Making the main text transparent to show layers below */
+    text-shadow:
+        1px 1px 0px #b19cd9,
+        2px 2px 0px #9b59b6,
+        3px 3px 0px #8e44ad,
+        4px 4px 0px #7d3c98,
+        5px 5px 0px #6c3483;
+    /* Multiple shadows to represent layers of the text in varying shades of purple */
+}
+
+header ul {
+
+    justify-content: center;
+    align-items: center;
+    margin-right: 90px;;
+}
+
+header ul li {
+    list-style: none;
+    margin-left: 40px;
+}
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+section::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #1c0522, transparent);
+    z-index: 1000;
+}
+section img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+section img#moon{
+    mix-blend-mode: screen;
+}
+section img#mountains_front{
+    z-index: 10;
+}
+#text{
+    position: absolute;
+    right: -350px;
+    color: #fff;
+    white-space: nowrap;
+    font-size: 7.5vw;
+    z-index: 9;
+}
+#btn{
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: #fff;
+    color: #2b1055;
+    font-size: 1.5em;
+    z-index: 9;
+    transform: translateY(100px);
+}
+.sec{
+    position: relative;
+    padding: 100px;
+    background: #1c0522;
+}
+
+.sec h2{
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+.sec p{
+    font-size: 1.2em;
+    color: #fff;
+}
+.sec2 {
+    position: relative;
+    padding: 100px;
+    background: #1c0522;
+}
+
+.sec2 h2 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.sec2 p {
+    font-size: 1.2em;
+    color: #fff;
+}
+.sec2 .sec2-content {
+    display: flex;
+    /* set the display to flex for horizontal layout */
+    align-items: center;
+    /* vertically align items to center */
+    gap: 30px;
+    /* space between the image and the story */
+}
+
+.chas-image {
+    max-width: 40%;
+    /* you can adjust this value based on your desired width */
+    height: auto;
+    /* maintain the aspect ratio */
+}
+
+.chas-story {
+    flex: 1;
+    /* allow the story to take up the remaining width */
+}
+@media (max-width: 768px) {
+
+    /* example breakpoint, adjust as needed */
+    .sec2 .sec2-content {
+        flex-direction: column;
+        /* stack items vertically */
+    }
+
+    .chas-image {
+        max-width: 100%;
+        margin-bottom: 20px;
+        /* space between image and story when stacked */
+    }
+}
