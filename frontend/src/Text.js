@@ -1,13 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Text.css'; 
 
 function App() {
   const [promptResponse, setPromptResponse] = useState('');
 
+    const msg = new SpeechSynthesisUtterance()
+    const [ourText, setOurText] = useState("")
+
+    const speechHandler = (msg) => {
+      msg.text = ourText
+      window.speechSynthesis.speak(msg)
+    }
+
 
 
   const handleSubmit = async () => {
-
+    
     var characters = document.getElementById("textarea1").value;
     var style = document.getElementById("textarea2").value;
     var location = document.getElementById("textarea3").value;
@@ -40,6 +48,7 @@ function App() {
         } else {
           tmpPromptResponse += value;
           setPromptResponse(tmpPromptResponse);
+          setOurText(tmpPromptResponse)
         }
       }
     } catch (error) {
@@ -52,7 +61,6 @@ function App() {
             <div style={{ textAlign: 'center' , flexDirection: 'column', justifyContent: 'center'}}>
 
             
-          
             <div style={{display: 'flex', flexDirection: 'column'}}>
             
             <div class="logo-wrapper">
@@ -84,11 +92,14 @@ function App() {
 
 
 
-          <div style={{padding: 0}} className="text-content-answer">
+          <div style={{padding: 0}} className="text-content-answer" value={ourText} onChange={(e) => setOurText(e.target.value)}>
             <h3>Here's your story:</h3>
             <span>{promptResponse}</span>
           </div>
-    
+
+
+          <h1>Hear your story with us!</h1>
+          <button onClick={() => speechHandler(msg)}>SPEAK</button>
           
 
         </div>      

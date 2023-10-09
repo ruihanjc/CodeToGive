@@ -7,6 +7,15 @@ import './Voice.css';
 
 function Voice() {
   const [promptResponse, setPromptResponse] = useState('');
+  const [ourText, setOurText] = useState("")
+  const msg = new SpeechSynthesisUtterance()
+    
+
+    const speechHandler = (msg) => {
+      msg.text = ourText
+      window.speechSynthesis.speak(msg)
+    }
+
 
   const handleSubmit = async () => {
 
@@ -38,6 +47,7 @@ function Voice() {
         } else {
           tmpPromptResponse += value;
           setPromptResponse(tmpPromptResponse);
+          setOurText(tmpPromptResponse)
         }
       }
     } catch (error) {
@@ -83,6 +93,9 @@ function Voice() {
                 <h3>Here's your story:</h3>
                 <span>{promptResponse}</span>
                 </div>
+
+                <h1>Hear the story wtih us!</h1>
+                <button onClick={() => speechHandler(msg)}>SPEAK</button>
             </div>
           </div>
           

@@ -6,6 +6,14 @@ function WebcamCapture () {
   const webcamRef = useRef(null);
   const [imgSrc, setImgSrc] = useState("");
   const [promptResponse, setPromptResponse] = useState('');
+  const [ourText, setOurText] = useState("")
+  const msg = new SpeechSynthesisUtterance()
+    
+
+    const speechHandler = (msg) => {
+      msg.text = ourText
+      window.speechSynthesis.speak(msg)
+    }
 
   const capture = async () => {
     const url = 'http://localhost:4444/api/upload-image'
@@ -49,6 +57,7 @@ function WebcamCapture () {
         } else {
           tmpPromptResponse += value;
           setPromptResponse(tmpPromptResponse);
+          setOurText(tmpPromptResponse)
         }
       }
       
@@ -94,7 +103,10 @@ function WebcamCapture () {
       <div className="video-content-answer">
           <h3>Here's your story:</h3>
           <span>{promptResponse}</span>
-      </div>    
+      </div>
+
+      <h1>Hear the story wtih us!</h1>
+      <button onClick={() => speechHandler(msg)}>SPEAK</button>    
     </div>
 
    
