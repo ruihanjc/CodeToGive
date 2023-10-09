@@ -29,6 +29,7 @@
   padding: 30;
 }
 
+
 .container {
   padding: 0px;
   margin-top: 20px;
@@ -41,6 +42,20 @@ p {
   text-align: center;
   margin-top: 24px;
   margin-bottom: 100px;
+}
+
+.text-content-answer {
+  max-width: 35rem;
+  align-items: left;
+  width: 100%;
+  min-height: 200px;
+  height: auto;
+  padding: 18px 18px 18px;
+  resize: true;
+  box-shadow: 0 12px 48px 0px rgb(109 117 141 / 20%);
+  background: rgb(255 255 255);
+  border: 0.5px solid rgb(231 233 245);
+  border-radius: 16px;
 }
 
 
@@ -65,6 +80,23 @@ p {
     font-size: 18px; /* Larger label text */
     margin-bottom: 10px; /* Add spacing between label and input */
   }
+
+
+.textButton {
+    /* position: absolute; */
+    background: rgb(255, 255, 255);
+    color: rgb(22, 137, 214);
+    border-radius: 6px;
+    padding: 16px 32px;
+    border: none;
+    align-items: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin: auto;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+  }
   
   input[type="text"] {
     padding: 10px;
@@ -75,9 +107,15 @@ p {
     max-width: 300px; /* Limit input width */
     margin-bottom: 20px; /* Add spacing between input and button */
   }
+
+  .btn-style{
+    background-color: #007bff;
+    padding: 15px 70px;
+    align-items: center;
+  }
   
   button[type="submit"] {
-    background-color: #007bff;
+    background-color: #ffffff;
     color: white;
     padding: 15px 70px;
     font-size: 18px; /* Larger button text */

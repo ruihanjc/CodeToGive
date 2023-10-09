@@ -7,6 +7,15 @@ import './Voice.css';
 
 function Voice() {
   const [promptResponse, setPromptResponse] = useState('');
+  const [ourText, setOurText] = useState("")
+  const msg = new SpeechSynthesisUtterance()
+    
+
+    const speechHandler = (msg) => {
+      msg.text = ourText
+      window.speechSynthesis.speak(msg)
+    }
+
 
   const handleSubmit = async () => {
 
@@ -38,6 +47,7 @@ function Voice() {
         } else {
           tmpPromptResponse += value;
           setPromptResponse(tmpPromptResponse);
+          setOurText(tmpPromptResponse)
         }
       }
     } catch (error) {
@@ -53,7 +63,7 @@ function Voice() {
 
     //subscribe to thapa technical for more awesome videos
 
-    const startListening = () => SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
+    const startListening = () => SpeechRecognition.startListening({ continuous: true, language: 'en-US' });
     const { transcript, browserSupportsSpeechRecognition } = useSpeechRecognition();
 
     if (!browserSupportsSpeechRecognition) {
@@ -63,29 +73,29 @@ function Voice() {
     return (
           <div className= "voiceBody">
             <div className="container">
-                <header className="voiceHead">Speak your story!</header>
-
-                <h>Converts speech from the microphone to text and makes it available to your React components.</h>
-
+                <header className="voiceHead">Tell your story!</header>
+                
+                <h>_</h>
+                
                 <div className="main-content" onClick={() =>  setTextToCopy(transcript)}>
                     {transcript}
                 </div>
 
-                <div className="btn-style">
+                <div className="voice-btn-style">
                     <button onClick={startListening}>Start Listening</button>
+                    <button onClick={handleSubmit}>Submit</button>
                     <button onClick={SpeechRecognition.stopListening}>Stop Listening</button>
                 </div>
 
-                <div style={{order: 3}}>
-                <button
-                  onClick={handleSubmit}
-                >Submit</button>
-                </div>
+                
 
                 <div className="content-answer">
-                <h3>Streamed Prompt Response:</h3>
+                <h3>Here's your story:</h3>
                 <span>{promptResponse}</span>
                 </div>
+
+                <h1>Hear the story wtih us!</h1>
+                <button onClick={() => speechHandler(msg)}>SPEAK</button>
             </div>
           </div>
           

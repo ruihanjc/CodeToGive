@@ -1,17 +1,13 @@
 from flask import Flask, request, Response, stream_with_context, json
 import requests
 import sseclient
-import tensorflow as tf
-from tqdm import tqdm
-import numpy as np 
-import pandas as pd 
 import random
 
 app = Flask(__name__)
 
 from flask_cors import CORS
 
-OPEN_AI_KEY = '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'
+OPEN_AI_KEY = ''
 
 # handle cors
 CORS(app)
@@ -56,30 +52,8 @@ def textPrompt():
 
 @app.route("/api/upload-image", methods=["POST"])
 def upload_image():
-        imagefile = request.files.get('imageSrc', '')
+        imagefile = request.files.get('imagefile', '')
 
-        
-
-
-        # Load pre-trained model
-        # num_model = tf.keras.models.load_model('models/number_model.h5')
-        
-        
-
-        # # Preprocessing steps
-        # num_x = np.shape(imagefile)
-        
-        # # img_array = cv2.imread(os.path.join(path,img) ,cv2.IMREAD_GRAYSCALE)
-        # # new_array = cv2.resize(img_array, (img_size[1], img_size[0]))
-
-        # # Normalize the data
-        # num_x = num_x / 255
-        # # Reshaping data from 1D to 3D
-        # num_x = num_x.reshape(-1,28,28,1)
-
-        # # Use model to predict number
-        # predictions = num_model.predict(num_x) 
-        # res = np.argmax(predictions,axis=1)
         
         res = random.randint(1,6)
 
@@ -130,6 +104,7 @@ def upload_image():
                         yield('')
 
         return Response(stream_with_context(generate()))
+
 
 
 @app.route("/")

@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Libre+Baskerville&family=Merriweather:wght@700&family=Work+Sans&display=swap");
+
+
+
+
+
+button {
+  /* position: absolute; */
+  background: rgb(255, 255, 255);
+  color: rgb(22, 137, 214);
+  border-radius: 6px;
+  padding: 16px 32px;
+  border: none;
+  align-items: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: auto;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
+
+button:focus,
+button:hover {
+  background: rgb(147, 148, 180);
+  box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+}
+
+.video-content-answer {
+    /*border:1px solid*/
+    max-width: 38rem;
+    align-items: left;
+    width: 100%;
+    min-height: 200px;
+    height: auto;
+    padding: 18px 18px 18px;
+    resize: true;
+    box-shadow: 0 12px 48px 0px rgb(109 117 141 / 20%);
+    background: rgb(255 255 255);
+    border: 0.5px solid rgb(231 233 245);
+    border-radius: 16px;
+  }
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: 20px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 16px;
+    word-spacing: normal;
+    margin-bottom: 40px;
+    margin-top: 15px;
+  }
+
+  .main-content {
+    /*border:1px solid*/
+    font-size: 16px;
+    word-spacing: normal;
+  }
+
+ 
+
+  button {
+    padding: 12px 28px;
+    font-size: 16px;
+    margin-top: -70px;
+  }
+
+  .counter-container {
+    flex-direction: column;
+  }
+
+  .counter-container p:first-child {
+    margin-bottom: 0;
+  }
+}

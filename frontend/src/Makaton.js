@@ -1,11 +1,19 @@
 import React, { useRef, useState } from 'react';
 import Webcam from 'react-webcam';
-import axios from 'axios';
+import './Makaton.css'; 
 
 function WebcamCapture () {
   const webcamRef = useRef(null);
   const [imgSrc, setImgSrc] = useState("");
   const [promptResponse, setPromptResponse] = useState('');
+  const [ourText, setOurText] = useState("")
+  const msg = new SpeechSynthesisUtterance()
+    
+
+    const speechHandler = (msg) => {
+      msg.text = ourText
+      window.speechSynthesis.speak(msg)
+    }
 
   const capture = async () => {
     const url = 'http://localhost:4444/api/upload-image'
@@ -25,7 +33,7 @@ function WebcamCapture () {
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify(imageSrc)
       });
-      setImgSrc(imageSrc);
+      
       
       // eslint-disable-next-line no-undef
 
@@ -47,6 +55,7 @@ function WebcamCapture () {
         } else {
           tmpPromptResponse += value;
           setPromptResponse(tmpPromptResponse);
+          setOurText(tmpPromptResponse)
         }
       }
       
@@ -57,41 +66,46 @@ function WebcamCapture () {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <h1>Webcam Data to Server</h1>
+       <header className="voiceHead">Record your story!</header>   
+      <h1>_</h1>
+      <h1>_</h1>
       <div style={{ margin: 'auto' }}>
-        <Webcam audio={false} ref={webcamRef} screenshotFormat="image/jpeg" />
+        <Webcam audio={false} ref={webcamRef} mirrored ='True' screenshotFormat="image/jpeg" />
       </div>
       <div style={{ margin: 'auto' }}>
         <button
           style={{
             marginTop: '10px',
             fontSize: '20px',
-            backgroundColor: '#423fff',
+            backgroundColor: '#fffff',
             cursor: 'pointer',
             borderRadius: "10px",
-            color: "white",
+            color: "#007bff",
             padding: "10px"
           }}
           onClick={capture}
         >
-          Capture
+          Capture Your Sign
         </button>
       </div>
-
+      <h1>_</h1>
       {
         imgSrc !== "" &&
         <div style={{ marginTop: '20px' }}>
           <h2>Captured Image</h2>
-          <img src={imgSrc} alt="Captured" style={{ marginTop: '10px' }} />
+          <img src={imgSrc} alt="Captured" style={{ marginTop: '20px', marginBot: '10px' }} />
         </div>
       }
 
+      <h4></h4>
     
-                <div className="content-answer">
-                <h3>Streamed Prompt Response:</h3>
-                <span>{promptResponse}</span>
-        
-    </div>    
+      <div className="video-content-answer">
+          <h3>Here's your story:</h3>
+          <span>{promptResponse}</span>
+      </div>
+
+      <h1>Hear the story wtih us!</h1>
+      <button onClick={() => speechHandler(msg)}>SPEAK</button>    
     </div>
 
    

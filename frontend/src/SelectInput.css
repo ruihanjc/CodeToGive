@@ -1,15 +1,17 @@
-/* SelectInput.css */
+
 
 .centered-buttons {
     display: flex;
     height: 100vh;
+    margin: 0px;
+    margin-left: 135px;
   }
   
   .large-button {
-    font-size: 16px; /* Decreased font size for smaller buttons */
+    font-size: 30px; /* Decreased font size for smaller buttons */
     padding: 10px 20px; /* Adjust padding as needed */
     margin: 8px;
-    background-color: #007bff; /* Button background color */
+    background-color: transparent; /* Button background color */
     color: #fff; /* Text color */
     border: none;
     border-radius: 8px;
@@ -24,10 +26,6 @@
     text-align: center;
   }
   
-  .large-button img {
-    max-width: 80%; /* Limits the image size within the button */
-    max-height: 60px; /* Limits the image height within the button */
-  }
   
   
   .large-button:hover {
